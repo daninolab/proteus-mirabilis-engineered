@@ -1,0 +1,63 @@
+%% 
+
+function [temperature_struct] = create_temperature_struct(valueHolder)
+
+    field1 = 'ImageName';
+    field2 = 'Strain';
+    field3 = 'Temperature'; % percentage
+    field4 = 'IPTG';
+    
+    field5 = 'TotalBoundaryPixels'; 
+    field6 = 'NumberOfBoundariesMode'; 
+    field7 = 'NumberOfVerticalBoundaryPixels'; 
+    
+    field8 = 'NumberOfColumnsConsidered'; 
+    
+    field9 = 'OverallMinDistance'; 
+    field10 = 'OverallMaxDistance'; 
+    field11 = 'OverallMeanDistance'; 
+    field12 = 'MeanDistancesBtwnBoundaries'; % 1st element = inoculum width 
+    field13 = 'MeanDistanceToInoc'; % boundary 1 = inoculum edge
+    field14 = 'MeanDistanceInocToBound2'; 
+    
+    field15 = 'STDofDistancesBtwnBoundaries'; 
+    field16 = 'MinSTDofDistances'; 
+    field17 = 'MaxSTDofDistances'; 
+    
+    field18 = 'STDof2ndBoundaryLocations'; 
+    field19 = 'STDofLastBoundaryLocations';
+    field20 = 'MaxSTDofAllBoundaryLocations'; 
+
+    temperature_struct = struct(field1,valueHolder,...
+                  field2,valueHolder,...
+                  field3,valueHolder,...
+                  field4,valueHolder,...
+                  field5,valueHolder,...
+                  field6,valueHolder,...
+                  field7,valueHolder,...
+                  field8,valueHolder,...
+                  field9,valueHolder,...
+                  field10,valueHolder,...
+                  field11,valueHolder,...
+                  field12,valueHolder,...
+                  field13,valueHolder,...
+                  field14,valueHolder,...
+                  field15,valueHolder,...
+                  field16,valueHolder,...
+                  field17,valueHolder,...
+                  field18,valueHolder,...
+                  field19,valueHolder,...
+                  field20,valueHolder);
+ill_0 = 'hr_0';
+ill_1 = 'hr_1';
+ill_2 = 'hr_2';
+ill_3 = 'hr_3';
+ill_4 = 'hr_4';
+ill_20 = 'hr_20';
+ill_times = {ill_0,ill_1,ill_2,ill_3,ill_4,ill_20};
+
+fieldnames = ['Strain' ill_times];
+valholder = cell(1,length(fieldnames));
+struct_args =[fieldnames;valholder];
+log_FC_struct = struct(struct_args{:});
+end
